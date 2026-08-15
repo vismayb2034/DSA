@@ -1,14 +1,14 @@
 class Solution(object):
     def subarraySum(self, nums, k):
-        prefix_counts = {0: 1}
-        running_sum = 0
-        count = 0
-        
-        for num in nums:
-            running_sum += num
-            needed = running_sum - k
-            if needed in prefix_counts:
-                count += prefix_counts[needed]
-            prefix_counts[running_sum] = prefix_counts.get(running_sum, 0) + 1
-        
-        return count 
+        prefix_sum={0:1}
+        s=0
+        count=0
+
+        for i in nums:
+            s+=i
+            q=s-k
+            
+            count+=prefix_sum.get(q,0)
+            prefix_sum[s] = prefix_sum.get(s,0) + 1
+        return count
+
