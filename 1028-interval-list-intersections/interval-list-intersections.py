@@ -12,14 +12,14 @@ class Solution(object):
 
             if s1<s2:
                 if e1>=s2:
-                    a=max(s1,s2)
+                    
                     b=min(e1,e2)
-                    res.append([a,b])
+                    res.append([s2,b])
             else:
                 if e2>=s1:
-                    a=max(s1,s2)
+                    
                     b=min(e1,e2)
-                    res.append([a,b])
+                    res.append([s1,b])
             
             if e1<=e2:
                 i+=1
