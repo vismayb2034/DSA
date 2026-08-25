@@ -6,19 +6,19 @@ class Solution(object):
         stack.append(i)
         ans.append(0)
         i-=1
-        j=0
+        
 
         while i >= 0:
-            while stack and temperatures[stack[j]] <= temperatures[i]:
+            while stack and temperatures[stack[-1]] <= temperatures[i]:
                 stack.pop()
-                j-=1
+                
             if len(stack)==0:
                 ans.append(0) 
             else:
                 ans.append(stack[-1]-i)
 
             stack.append(i)
-            j+=1
+            
             i-=1
         ans.reverse()
             
