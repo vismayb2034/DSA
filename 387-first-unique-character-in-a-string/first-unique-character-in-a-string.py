@@ -1,12 +1,14 @@
 class Solution(object):
     def firstUniqChar(self, s):
-        freq = [0] * 26
+        d = {}
 
+        # Count characters
         for ch in s:
-            freq[ord(ch) - ord('a')] += 1
+            d[ch] = d.get(ch, 0) + 1
 
+        # Find first character with count 1
         for i in range(len(s)):
-            if freq[ord(s[i]) - ord('a')] == 1:
+            if d[s[i]] == 1:
                 return i
 
         return -1
