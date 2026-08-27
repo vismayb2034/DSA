@@ -12,8 +12,6 @@ class Solution(object):
             for ch in s:
                 if d.get(ch, 0) - s[ch] < 0:
                     return i
-
-            for ch in s:
                 d[ch] -= s[ch]
 
             i += 1
