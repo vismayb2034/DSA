@@ -1,19 +1,12 @@
 class Solution(object):
     def firstUniqChar(self, s):
-        d = {}
-        a = []
+        freq = [0] * 26
+
+        for ch in s:
+            freq[ord(ch) - ord('a')] += 1
 
         for i in range(len(s)):
-            if s[i] not in d:
-                d[s[i]] = [1, i]
-                a.append(i)
-            else:
-                d[s[i]][0] += 1
-
-                if d[s[i]][0] == 2:
-                    a.remove(d[s[i]][1])
-
-        if a:
-            return a[0]
+            if freq[ord(s[i]) - ord('a')] == 1:
+                return i
 
         return -1
