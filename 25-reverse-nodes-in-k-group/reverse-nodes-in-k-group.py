@@ -14,10 +14,9 @@ class Solution(object):
             n=k
             right = left
             for i in range(1,k) :
-                if right.next==None:
-                    right=None
-                    break
                 right=right.next
+                if right == None:
+                    break
 
             
             if right:
