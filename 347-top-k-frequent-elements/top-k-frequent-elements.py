@@ -13,19 +13,23 @@ class Pair:
 
 class Solution(object):
     def topKFrequent(self, nums, k):
-        d = {}
 
-        for i in nums:
-            d[i] = d.get(i, 0) + 1
+        freq = {}
+
+        for num in nums:
+            if num not in freq:
+                freq[num] = 1
+            else:
+                freq[num] += 1
 
         heap = []
 
-        for ele, freq in list(d.items())[:k]:
-            heapq.heappush(heap, Pair(freq, ele))
+        for num in freq:
+            p = Pair(freq[num], num)
 
-        for ele, freq in list(d.items())[k:]:
-            if heap[0].first < freq:
-                heapq.heappush(heap, Pair(freq, ele))
+            heapq.heappush(heap, p)
+
+            if len(heap) > k:
                 heapq.heappop(heap)
 
         ans = []
